@@ -28,7 +28,9 @@ app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT);
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
+app.listen(PORT, () => console.log(`Listening on - ${PORT}`));
 
 const bootstrap = async () => {
   try {
