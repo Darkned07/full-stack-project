@@ -3,6 +3,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
+const helmet = require("helmet");
+const compression = require("compression");
+
 const cors = require("cors");
 
 // post routes
@@ -17,6 +20,8 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser({}));
+app.use(helmet());
+app.use(compression());
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT);
