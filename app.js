@@ -34,7 +34,7 @@ app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 8080;
 
-app.listen();
+app.listen(PORT);
 
 const bootstrap = async () => {
   try {
