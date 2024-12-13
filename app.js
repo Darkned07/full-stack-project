@@ -17,20 +17,18 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser({}));
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT);
 
 app.use(express.static("static"));
 app.use(fileUpload({}));
 // routes
 app.use("/api/post/", require("./router/post.router"));
 app.use("/api/auth/", require("./router/auth.router"));
+app.get("/", (res) => res.send("Express on Vercel"));
 
 app.use(errorMiddleware);
-
-const PORT = process.env.PORT || 8080;
-
-app.get("/", (req, res) => res.send("Express on Vercel"));
-
-app.listen(PORT, () => console.log(`Listening on - ${PORT}`));
 
 const bootstrap = async () => {
   try {
