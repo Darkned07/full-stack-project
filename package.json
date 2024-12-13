@@ -5,9 +5,9 @@
   "main": "app.js",
   "type": "commonjs",
   "scripts": {
-    "server": "nodemon app.js",
-    "start": "nodemon app.js",
-    "dev": "nodemon app.js"
+    "server": "node app.js",
+    "start": "node app.js",
+    "dev": "node app.js"
   },
   "keywords": [
     "NodeJS",
