@@ -5,6 +5,7 @@ const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
 const helmet = require("helmet");
 const compression = require("compression");
+const server = require("http");
 
 const cors = require("cors");
 
@@ -22,18 +23,18 @@ app.use(express.json());
 app.use(cookieParser({}));
 app.use(helmet());
 app.use(compression());
-const PORT = process.env.PORT || 8080;
-
-app.listen(PORT);
 
 app.use(express.static("static"));
 app.use(fileUpload({}));
 // routes
 app.use("/api/post/", require("./router/post.router"));
 app.use("/api/auth/", require("./router/auth.router"));
-app.get("/", (res) => res.send("Express on Vercel"));
 
 app.use(errorMiddleware);
+
+const PORT = process.env.PORT || 8080;
+
+app.listen();
 
 const bootstrap = async () => {
   try {
